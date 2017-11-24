@@ -25,7 +25,7 @@ SECRET_KEY = '%15bnfohbu7r1+xy4+%%w7e$)x&l8@r42=^%jic%pstu1fisf4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hachevaldez.pythonanywhere.com']
 
 
 # Application definition
@@ -75,8 +75,11 @@ WSGI_APPLICATION = 'aerolab.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hachevaldez$aerolab',
+        'USER': 'hachevaldez',
+        'PASSWORD': 'mysqlhache',
+        'HOST': 'hachevaldez.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
     }
 }
 
