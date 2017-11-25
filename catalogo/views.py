@@ -3,4 +3,10 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 
-# Create your views here.
+
+def catalogo(request):
+    context = {
+        'title': "Catálogo"
+    }
+
+    return render(request, 'catalogo/index.html', context)

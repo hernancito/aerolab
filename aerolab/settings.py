@@ -25,7 +25,7 @@ SECRET_KEY = '%15bnfohbu7r1+xy4+%%w7e$)x&l8@r42=^%jic%pstu1fisf4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['hachevaldez.pythonanywhere.com']
+ALLOWED_HOSTS = ['hachevaldez.pythonanywhere.com', 'localhost']
 
 
 # Application definition
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'aerolab.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,9 +79,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hachevaldez$aerolab',
-        'USER': 'hachevaldez',
-        'PASSWORD': 'mysqlhache',
-        'HOST': 'hachevaldez.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
+        # 'USER': 'hachevaldez',
+        # 'PASSWORD': 'mysqlhache',
+        # 'HOST': 'hachevaldez.mysql.pythonanywhere-services.com',
+        'USER': 'root',
+        'PASSWORD': 'mysqlhernan',
     }
 }
 
@@ -123,3 +125,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = '/var/www/aerolab/static_cdn/'
