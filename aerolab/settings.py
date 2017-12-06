@@ -127,3 +127,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = '/var/www/aerolab/static_cdn/'
+MEDIA_ROOT = '/var/www/aerolab/media/'  # donde se van a guardar las imagenes que suban
