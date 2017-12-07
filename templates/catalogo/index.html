@@ -3,10 +3,62 @@
 <html>
 <head>
     <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/catalogo/index.css' %}">
 </head>
 
 <body>
-    
+    <div class="container">
+
+        <div class="navbar">
+            <div class="logo"></div>
+            <div class="user">
+                <div class="username">John Kite</div>
+                <div class="credits"><a>60000</a></div>
+            </div>
+        </div>
+
+        <div class="crop">
+            <img src="{% static 'img/catalogo/header-x2.png' %}" class="header">
+        </div>
+
+        <div class="filter">
+            <div class="filter__count">{{ item_list.count }} of {{ total_items }} products</div>
+            <div class="filter__list">
+                Sort by:
+                <a class="filter__list__option active">Most recent</a>
+                <a class="filter__list__option">Lowest price</a>
+                <a class="filter__list__option">Highest price</a>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="page">
+            <div class="row">
+                {% for item in item_list %}
+                    <div class="item">
+                        <div class="item-overlay">
+                            <div class="item-overlay__price">{{ item.price }}</div>
+                            <div class="redeem">Redeem</div>
+                        </div>
+                        <div class="item-header">
+                            <img src="http://localhost:28000/media/{{ item.image }}">
+                        </div>
+                        <div class="line"></div>
+                        <div class="item-footer">
+                            <div class="subtitle">{{ item.category }}</div>
+                            <div class="title">{{ item.description }}</div>
+                        </div>
+                    </div>
+
+                    {% if forloop.counter|divisibleby:4 %}
+                        </div>
+                        <div class="row">
+                    {% endif %}
+                {% endfor %}
+        </div>
+    </div>
 </body>
 
 </html>

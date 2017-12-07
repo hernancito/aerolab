@@ -33,6 +33,8 @@ class Item(models.Model):
     category = models.ForeignKey(Category)
     description = models.CharField(max_length=30)
     image = models.ImageField(upload_to=category_folder)  # MEDIA_ROOT
+    date = models.DateTimeField(auto_now_add=True)
+    price = models.PositiveIntegerField()
 
     def __str__(self):
         return '{} - {}'.format(self.description, self.category)
